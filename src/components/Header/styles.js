@@ -16,6 +16,6 @@ export const Container = styled.div`
   h3 {
     margin-top: 30px;
     font-size: 30px;
-    font-weight: normal;
+    font-weight: bold;
   }
 `;

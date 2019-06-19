@@ -1,0 +1,91 @@
+.modal-container {
+  padding: 15px;
+  border-radius: 5px;
+  border: 3px solid #000;
+  background-color: #fff;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-container h2 {
+  display: flex;
+  align-items: center;
+}
+
+.modal-container h2 img {
+  width: 15px;
+  margin-right: 25px;
+}
+
+.modal-div {
+  padding: 25px;
+}
+
+.modal-div div {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.cancel {
+  font-weight: bold;
+  font-size: 18px;
+  width: 150px;
+  height: 40px;
+  padding: 6px 7px;
+  border-radius: 5px;
+  background: #f95e5a;
+  border: 0;
+  color: #fff;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+}
+
+.cancel:hover {
+  background: #cc4c4c;
+}
+
+.cancel:active {
+  background: #a53f3f;
+}
+
+.remove {
+  font-weight: bold;
+  font-size: 18px;
+  width: 150px;
+  height: 40px;
+  padding: 6px 7px;
+  border-radius: 5px;
+  background: #365df0;
+  border: 0;
+  color: #fff;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove:hover {
+  background: #2f55cc;
+}
+
+.remove:active {
+  background: #244aa8;
+}
