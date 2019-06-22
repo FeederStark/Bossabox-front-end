@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { Creators as ModalsActions } from '../../store/ducks/modals';
+import { Creators as ToolsActions } from '../../store/ducks/tools';
 
 import {
   Container,
@@ -22,25 +23,36 @@ import AddIcon from '../../assets/images/add.svg';
 class FloatBar extends Component {
   static propTypes = {
     openAddModal: PropTypes.func.isRequired,
+    getTools: PropTypes.func.isRequired,
   };
 
   state = {
+    search: '',
     checked: false,
   };
 
   handleCheck = () => {
+    const { getTools } = this.props;
+    const { checked, search } = this.state;
+    this.setState({ checked: !checked }, () => getTools(search, !checked));
+  };
+
+  handleSearch = (e) => {
+    const { getTools } = this.props;
     const { checked } = this.state;
-    this.setState({ checked: !checked });
+    const text = e.target.value;
+    this.setState({ search: text }, () => getTools(text, checked));
   };
 
   render() {
-    const { checked } = this.state;
+    const { search, checked } = this.state;
     const { openAddModal } = this.props;
+    console.log(this.props);
     return (
       <Container>
-        <SearchForm onSubmit={() => {}}>
+        <SearchForm onSubmit={e => e.preventDefault()}>
           <SearchBar>
-            <input type="text" placeholder="search" />
+            <input type="text" placeholder="search" value={search} onChange={this.handleSearch} />
           </SearchBar>
           <Label>
             <CheckboxContainer>
@@ -67,7 +79,13 @@ const mapStateToProps = state => ({
   modals: state.modals,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(ModalsActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    ...ModalsActions,
+    ...ToolsActions,
+  },
+  dispatch,
+);
 
 export default connect(
   mapStateToProps,

@@ -31,8 +31,9 @@ export default function tools(state = INITIAL_STATE, action) {
  */
 
 export const Creators = {
-  getTools: () => ({
+  getTools: (text = '', check = false) => ({
     type: Types.GET_TOOLS_REQUEST,
+    payload: { text, check },
   }),
   getToolsSuccess: data => ({
     type: Types.GET_TOOLS_SUCCESS,
