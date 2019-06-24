@@ -13,7 +13,7 @@ After running your api on port 3000 you run `yarn start`.
 ## Functionalities
 
 This is a simple one-page-application to manage tools with their respective names, links, descriptions and tags.
-First, the api will fetch the data from the api and show them in cards, and you can either add a new tool, remove, navigate to the tool's link or tools by specific title/tags.
+First, the application will fetch all the data from the api and show them in cards, and you can either add a new tool, remove, navigate to the tool's link or fetch tools by specific title/tags.
 
 ### Add new tool
 
@@ -32,7 +32,7 @@ If you mark the 'search in tags only' input you will only be matching your searc
 
 ## Tools used
 
-This is a list of the tools used to make this application and their reason.
+This is a list of the tools used to make this application.
 
 - styled-components. This is used to style most of the application components.
 - prop-types. Way of making runtime assertions about what type of data a React component requires in order to render properly.
