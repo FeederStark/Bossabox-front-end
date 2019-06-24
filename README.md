@@ -1,68 +1,45 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Requirements
 
-In the project directory, you can run:
+First, you will need to clone/download this [api](https://gitlab.com/bossabox/challenge-fake-api/tree/master).
+Then, you must run `npm install` and `npx json-server db.json`. The api will be running on `http://localhost:3000`.
 
-### `npm start`
+## Starting app
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Clone/download this repository and run `yarn install`.
+After running your api on port 3000 you run `yarn start`.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Functionalities
 
-### `npm test`
+This is a simple one-page-application to manage tools with their respective names, links, descriptions and tags.
+First, the api will fetch the data from the api and show them in cards, and you can either add a new tool, remove, navigate to the tool's link or tools by specific title/tags.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Add new tool
 
-### `npm run build`
+To add a new tool all you need to do is to click in the Add button and a modal will prompt.
+Then, you type the info and click add Tool. To cancel your action you can just click outside the modal and it will close.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Removing a tool
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+To remove a tool you have to click the 'X remove' button on the upper right corner of the card and a modal will prompt.
+Then, you must confirm your action clicking in the 'Yes, remove' button. To cancel your action you can either click outside the modal or in the 'Cancel' button to close the modal.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Fetching data
 
-### `npm run eject`
+All the tools will be fetched when you start the application, but if you want to look for tools in particular you can just type their title/tags in the search field and you will be dinamically fetching only these tools.
+If you mark the 'search in tags only' input you will only be matching your search by the tags.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Tools used
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This is a list of the tools used to make this application and their reason.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- styled-components. This is used to style most of the application components.
+- prop-types. Way of making runtime assertions about what type of data a React component requires in order to render properly.
+- axios. We use axios to make the api calls.
+- react-modal. Way of creating the modals.
+- redux and react-redux. To use a global store and make the flux of data flow better.
+- redux-saga. To make asynchronous calls.
+- eslint. Eslint is used to make the code have a solid pattern.
+- editorconfig. Editorconfig also helps with having a solid pattern between the devs.
+- react-toastify. This is used to prompt successfull/error messages to the user after inserting/removing data.
