@@ -40,6 +40,12 @@ class AddTool extends Component {
     };
     addToolRequest(data);
     closeAddModal();
+    this.setState({
+      title: '',
+      link: '',
+      description: '',
+      tags: '',
+    });
   };
 
   render() {
