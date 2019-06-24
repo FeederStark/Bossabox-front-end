@@ -47,7 +47,6 @@ class FloatBar extends Component {
   render() {
     const { search, checked } = this.state;
     const { openAddModal } = this.props;
-    console.log(this.props);
     return (
       <Container>
         <SearchForm onSubmit={e => e.preventDefault()}>

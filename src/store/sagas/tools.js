@@ -28,6 +28,12 @@ export function* getTools(action) {
 
 export function* addTool(action) {
   const { data } = action.payload;
+  if (data.title === '') {
+    toast.error('Tool must have a title', {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+    return;
+  }
   const isDuplicated = yield select(state => state.tools.find(tool => tool.title === data.title));
 
   if (isDuplicated) {
