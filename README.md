@@ -43,3 +43,4 @@ This is a list of the tools used to make this application.
 - eslint. Eslint is used to make the code have a solid pattern.
 - editorconfig. Editorconfig also helps with having a solid pattern between the devs.
 - react-toastify. This is used to prompt successfull/error messages to the user after inserting/removing data.
+- react-highlight-words. Used to highlight the cards tags.

@@ -14,13 +14,16 @@ export const Types = {
  * Reducers
  */
 
-const INITIAL_STATE = [];
+const INITIAL_STATE = {
+  text: '',
+  data: [],
+};
 export default function tools(state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.GET_TOOLS_SUCCESS:
-      return action.payload.data;
+      return { text: action.payload.text, data: action.payload.data };
     case Types.ADD_TOOL_SUCCESS:
-      return [...state, action.payload.data];
+      return { ...state, data: [...state.data, action.payload.data] };
     default:
       return state;
   }
@@ -35,9 +38,9 @@ export const Creators = {
     type: Types.GET_TOOLS_REQUEST,
     payload: { text, check },
   }),
-  getToolsSuccess: data => ({
+  getToolsSuccess: (text, data) => ({
     type: Types.GET_TOOLS_SUCCESS,
-    payload: { data },
+    payload: { text, data },
   }),
   addToolRequest: data => ({
     type: Types.ADD_TOOL_REQUEST,

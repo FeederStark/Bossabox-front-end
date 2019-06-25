@@ -40,7 +40,7 @@ export const BottomBar = styled.div`
   display: flex;
   justify-content: flex-start;
 
-  span {
+  p {
     font-weight: bold;
     margin-left: 5px;
     &:first-child {

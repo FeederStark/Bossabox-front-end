@@ -9,15 +9,15 @@ export function* getTools(action) {
     if (text === '') {
       const { data } = yield call(api.get, '/tools');
 
-      yield put(ToolsCreators.getToolsSuccess(data));
+      yield put(ToolsCreators.getToolsSuccess(text, data));
     } else if (check === true) {
       const { data } = yield call(api.get, `/tools?tags_like=${text}`);
 
-      yield put(ToolsCreators.getToolsSuccess(data));
+      yield put(ToolsCreators.getToolsSuccess(text, data));
     } else {
       const { data } = yield call(api.get, `/tools?q=${text}`);
 
-      yield put(ToolsCreators.getToolsSuccess(data));
+      yield put(ToolsCreators.getToolsSuccess(text, data));
     }
   } catch (err) {
     toast.error('Error fetching tools', {

@@ -13,11 +13,14 @@ import { Container } from './styles';
 
 class Main extends Component {
   static propTypes = {
-    tools: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number,
-      }),
-    ).isRequired,
+    tools: PropTypes.shape({
+      data: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number,
+        }),
+      ),
+      text: PropTypes.string,
+    }).isRequired,
     getTools: PropTypes.func.isRequired,
   };
 
@@ -32,8 +35,8 @@ class Main extends Component {
       <Container>
         <Header />
         <FloatBar />
-        {tools.map(tool => (
-          <Card key={tool.id} data={tool} />
+        {tools.data.map(tool => (
+          <Card key={tool.id} data={tool} text={tools.text} />
         ))}
         <AddTool />
         <RemoveTool />

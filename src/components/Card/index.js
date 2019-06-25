@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import Highlighter from 'react-highlight-words';
 
 import { Creators as ToolsActions } from '../../store/ducks/tools';
 import { Creators as ModalsActions } from '../../store/ducks/modals';
@@ -10,7 +11,7 @@ import {
   Container, TopBar, Title, Button, Content, BottomBar,
 } from './styles';
 
-const Card = ({ data, openRemoveModal }) => (
+const Card = ({ data, openRemoveModal, text }) => (
   <Container>
     <TopBar>
       <Title href={data.link}>{data.title}</Title>
@@ -19,7 +20,14 @@ const Card = ({ data, openRemoveModal }) => (
     <Content>{data.description}</Content>
     <BottomBar>
       {data.tags.map(tag => (
-        <span key={tag}>{`#${tag}`}</span>
+        <p key={tag}>
+          <Highlighter
+            searchWords={[text]}
+            autoEscape
+            textToHighlight={`#${tag}`}
+            highlightStyle={{ background: '#ffe599', margin: 0 }}
+          />
+        </p>
       ))}
     </BottomBar>
   </Container>
@@ -33,6 +41,7 @@ Card.propTypes = {
     tags: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
   openRemoveModal: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
