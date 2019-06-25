@@ -34,7 +34,7 @@ export function* addTool(action) {
     });
     return;
   }
-  const isDuplicated = yield select(state => state.tools.find(tool => tool.title === data.title));
+  const isDuplicated = yield select(state => state.tools.data.find(tool => tool.title === data.title));
 
   if (isDuplicated) {
     toast.error('Tool already registered', {
